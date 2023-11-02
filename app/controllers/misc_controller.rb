@@ -40,5 +40,14 @@ class MiscController < ApplicationController
     @movies = Character.all.where({:actor_id => @aid})
     render({ :template => "misc_templates/actordetails"})
   end
+  
+  def youngest_dir
+    @yd = Director.where.not({ :dob => nil }).order({:dob => :desc}).first
+    render({ :template => "misc_templates/youngestdir"})
+  end
 
+  def eldest_dir
+    @yd = Director.where.not({ :dob => nil }).order({:dob => :asc}).first
+    render({ :template => "misc_templates/oldestdir"})
+  end
 end
