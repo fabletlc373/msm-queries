@@ -1,0 +1,78 @@
+<h1> Director # <%=@did %> details</h1>
+<a href="/directors"> Go back </a>
+<hr>
+<dl>
+  <dt> Name </dt>
+  <dd> <%= @ddetails.name %> </dd>
+
+  <dt> Dob </dt>
+  <dd> <%= @ddetails.dob %> </dd>
+
+  <dt> Bio </dt>
+  <dd> <%= @ddetails.bio %> </dd>
+
+  <dt> Image </dt>
+  <dd> <img src=<%= @ddetails.image %> style="width:250px;"> </dd>
+
+  <dt> Created at </dt>
+  <dd> <%= @ddetails.created_at %> </dd>
+
+  <dt> Updated at </dt>
+  <dd> <%= @ddetails.updated_at %> </dd>
+
+</dl>
+
+<hr>
+
+<h1> Filmography </h1>
+<table border="1">
+    <tr>
+      <th>
+        ID
+      </th>
+
+      <th>
+        Image
+      </th>
+
+      <th>
+        Title
+      </th>
+
+      <th>
+        Year
+      </th>
+
+      <th>
+        Director
+      </th>
+
+      <th>
+      </th>
+  </tr>
+
+  
+  <% @movies.each do |m| %>
+    <tr>
+      <td>
+        <%= m.id%>
+      </td>
+      <td>
+        <img src=<%= m.image%> style="width:250px;">
+      </td>
+      <td>
+        <%= m.title%>
+      </td>
+      <td>
+        <%= m.year%>
+      </td>
+      <td>
+         <%=@ddetails.name%>
+      </td>
+      <td>
+        <a href="/movies/<%=m.id%>">Show details</a>
+      </td>
+    </tr>
+  <% end %>
+  
+</table>
